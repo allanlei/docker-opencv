@@ -33,6 +33,7 @@ RUN     apk --no-cache add --virtual .buildbase \
         make VERBOSE=1 && \
         make && \
         make install && \
+        ln -s /usr/local/lib/python2.7/site-packages/cv2.so /usr/lib/python2.7/site-packages/cv2.so && \
         rm -rf /opt && \
         apk --no-cache add --.virtual .rundeps \
             libjpeg \
