@@ -1,4 +1,4 @@
-FROM    alpine:3.4
+FROM    alpine:edge
 
 ENV     VERSION 3.1.0
 
@@ -41,6 +41,6 @@ RUN     apk --no-cache add --virtual .buildbase \
             libpng \
             tiff \
             libwebp \
-            libtbb
+            libtbb \
             libjasper && \
         apk del .builddeps
