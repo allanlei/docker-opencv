@@ -13,8 +13,7 @@ RUN     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/rep
             # openjdk8 \
 
             # libtbb \
-            # libtbb-dev
-
+            # libtbb-dev \
             # libjpeg  \
             # libjpeg-turbo-dev \
             # libpng-dev \
@@ -30,9 +29,9 @@ RUN     cd /opt/src/opencv && \
         cmake \
             -D CMAKE_BUILD_TYPE=RELEASE \
             -D CMAKE_INSTALL_PREFIX=/usr/local \
-            -D WITH_FFMPEG=NO \
-            -D WITH_IPP=NO \
-            -D WITH_OPENEXR=NO \
+            # -D WITH_FFMPEG=NO \
+            # -D WITH_IPP=NO \
+            # -D WITH_OPENEXR=NO \
             . && \
         make VERBOSE=1 && \
         make && \
