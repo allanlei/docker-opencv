@@ -37,8 +37,8 @@ RUN     cd /opt/src/opencv && \
         make VERBOSE=1 && \
         make && \
         make install && \
-        ln -s /usr/local/lib/python2.7/site-packages/cv2.so /usr/lib/python2.7/site-packages/cv2.so && \
-        rm -rf /opt && \
+        ln -s /usr/local/lib/python2.7/site-packages/cv2.so /usr/lib/python2.7/site-packages/cv2.so
+RUN     rm -rf /opt && \
         apk --no-cache add --virtual .rundeps \
             libjpeg \
             libjpeg-turbo \
@@ -47,4 +47,4 @@ RUN     cd /opt/src/opencv && \
             libwebp \
             libtbb \
             libjasper && \
-        apk del .builddeps
+        apk --no-cache del .builddeps
