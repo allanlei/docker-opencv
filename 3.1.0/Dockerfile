@@ -8,7 +8,6 @@ RUN     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/rep
 RUN     apk --no-cache add --virtual .buildbase \
             build-base \
             linux-headers \
-        #     python \
             python-dev \
             cmake \
             libtbb \
@@ -20,6 +19,7 @@ RUN     apk --no-cache add --virtual .buildbase \
             tiff-dev \
             libwebp-dev \
             py-numpy-dev \
+            # python \
             # py-scipy-dev \
             # gsl \
             # libavc1394-dev \
