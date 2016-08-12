@@ -4,7 +4,7 @@ ENV     VERSION 3.1.0
 
 COPY    src/opencv /opt/src/opencv
 RUN     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-        apk --no-cache add --virtual .buildbase \
+        apk --no-cache add --virtual .builddeps \
             build-base \
             cmake \
             linux-headers \
@@ -37,8 +37,8 @@ RUN     cd /opt/src/opencv && \
         make VERBOSE=1 && \
         make && \
         make install && \
-        ln -s /usr/local/lib/python2.7/site-packages/cv2.so /usr/lib/python2.7/site-packages/cv2.so
-RUN     rm -rf /opt && \
+        ln -s /usr/local/lib/python2.7/site-packages/cv2.so /usr/lib/python2.7/site-packages/cv2.so && \
+        rm -rf /opt && \
         apk --no-cache add --virtual .rundeps \
             libjpeg \
             libjpeg-turbo \
@@ -47,4 +47,4 @@ RUN     rm -rf /opt && \
             libwebp \
             libtbb \
             libjasper && \
-        apk --no-cache del .builddeps
+        apk del .builddeps

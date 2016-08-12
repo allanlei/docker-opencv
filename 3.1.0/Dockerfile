@@ -4,7 +4,7 @@ ENV     VERSION 3.1.0
 
 COPY    src/opencv /opt/src/opencv
 RUN     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-        apk --no-cache add --virtual .buildbase \
+        apk --no-cache add --virtual .builddeps \
             build-base \
             cmake \
             linux-headers \
@@ -29,6 +29,7 @@ RUN     cd /opt/src/opencv && \
         cmake \
             -D CMAKE_BUILD_TYPE=RELEASE \
             -D CMAKE_INSTALL_PREFIX=/usr/local \
+        #     -D BUILD_SHARED_LIBS=NO \
             # -D WITH_FFMPEG=NO \
             # -D WITH_IPP=NO \
             # -D WITH_OPENEXR=NO \
